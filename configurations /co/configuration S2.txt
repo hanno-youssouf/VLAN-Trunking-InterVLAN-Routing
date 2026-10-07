@@ -1,0 +1,52 @@
+hostname Switch
+
+ VLAN Configuration
+vlan 10
+ name admin
+exit
+
+vlan 20
+ name finance
+exit
+
+vlan 30
+ name it
+exit
+
+ VLAN 10 - Admin
+interface FastEthernet0/1
+ switchport mode access
+ switchport access vlan 10
+exit
+
+interface FastEthernet0/2
+ switchport mode access
+ switchport access vlan 10
+exit
+
+ VLAN 20 - Finance
+interface FastEthernet0/3
+ switchport mode access
+ switchport access vlan 20
+exit
+
+interface FastEthernet0/4
+ switchport mode access
+ switchport access vlan 20
+exit
+
+! VLAN 30 - IT
+interface FastEthernet0/5
+ switchport mode access
+ switchport access vlan 30
+exit
+
+interface FastEthernet0/6
+ switchport mode access
+ switchport access vlan 30
+exit
+
+ Trunk to second Switch
+interface FastEthernet0/24
+ switchport mode trunk
+exit
